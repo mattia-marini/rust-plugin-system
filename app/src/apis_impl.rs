@@ -20,4 +20,3 @@ pub const APIS: apis::Apis = apis::Apis {
     api1,
     api2,
 };
-

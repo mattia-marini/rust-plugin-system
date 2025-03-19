@@ -1,6 +1,7 @@
-#[no_mangle] // Prevent Rust from renaming the function
-pub extern "C" fn main(apis: apis::Apis) {
+#[no_mangle]
+pub extern "C" fn main(apis: &apis::Apis) {
     println!("Hello from plugin 1!");
+    // println!("{:?}", apis.val);
     (apis.api1)();
     (apis.api2)();
 }
