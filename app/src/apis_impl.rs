@@ -15,7 +15,7 @@ pub extern "C" fn api2() {
 }
 
 // TODO having macro to automatically define apis
-pub const APIS: apis::Apis = apis::Apis {
+pub const APIS: apis::ApisData = apis::ApisData {
     val: 42,
     api1,
     api2,

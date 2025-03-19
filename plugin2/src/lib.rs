@@ -1,14 +1,14 @@
 #[no_mangle]
-pub extern "C" fn main(apis_ptr: *const apis::Apis) {
+pub extern "C" fn init_apis(apis_ptr: *const apis::ApisData) {
+    apis::init_apis(apis_ptr);
+}
+
+#[no_mangle]
+pub extern "C" fn main() {
     println!("Hello from plugin 2!");
 
-    let apis: &apis::Apis;
-    unsafe {
-        apis = &*apis_ptr;
-    }
-
-    (apis.api1)();
-    (apis.api2)();
+    apis::api1();
+    apis::api2();
 }
 
 //#[link(name = "my_plugin")]
