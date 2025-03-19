@@ -1,7 +1,11 @@
 #[no_mangle]
-pub extern "C" fn main(apis: &apis::Apis) {
+pub extern "C" fn main(apis_ptr: *const apis::Apis) {
     println!("Hello from plugin 1!");
-    // println!("{:?}", apis.val);
+    let apis: &apis::Apis;
+    unsafe {
+        apis = &*apis_ptr;
+    }
+
     (apis.api1)();
     (apis.api2)();
 }
